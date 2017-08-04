@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         @Override
         public void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
-            Toast.makeText(getActivity(), "onSaveInstanceState",
+            Toast.makeText(getActivity(), "onSaveInstanceState position " + mCurCheckPosition,
                     Toast.LENGTH_LONG).show();
 
             outState.putInt("curChoice", mCurCheckPosition);
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
             Toast.makeText(getActivity(),
-                    "onListItemClick position is" + position, Toast.LENGTH_LONG)
+                    "onListItemClick position is " + position, Toast.LENGTH_LONG)
                     .show();
 
             showDetails(position);
@@ -99,6 +99,7 @@ public class MainActivity extends Activity {
                 return;
 
             if (mDualPane) {
+                // Don't check the item
                 getListView().setItemChecked(index, true);
 
                 DetailsFragment details = (DetailsFragment)
