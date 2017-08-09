@@ -7,6 +7,7 @@ import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.madao.dynamicui.data.Shakespeare;
+
 
 public class MainActivity extends Activity {
 
@@ -52,6 +54,7 @@ public class MainActivity extends Activity {
     public static class TitlesFragment extends ListFragment {
         boolean mDualPane;
         int mCurCheckPosition = -1;
+        private static final String TAG = "Log";
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -100,7 +103,9 @@ public class MainActivity extends Activity {
 
             if (mDualPane) {
                 // Don't check the item
+                Log.v(TAG, "checked position is " + getListView().getCheckedItemPosition());
                 getListView().setItemChecked(index, true);
+                Log.v(TAG, "checked position is " + getListView().getCheckedItemPosition());
 
                 DetailsFragment details = (DetailsFragment)
                         getFragmentManager().findFragmentById(R.id.details);
