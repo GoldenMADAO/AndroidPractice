@@ -201,8 +201,8 @@ public class LoaderCursor extends Activity {
             }
 
             String select = "((" + Contacts.DISPLAY_NAME + " NOTNULL) AND ("
-                    + Contacts.HAS_PHONE_NUMBER + " = 1) AND ("
-                    + Contacts.DISPLAY_NAME + " != '' ))";
+                    + Contacts.DISPLAY_NAME + " != '' ) AND ("
+                    + Contacts.HAS_PHONE_NUMBER + " = 1))";
             return new CursorLoader(getActivity(), baseUri,
                     CONTACT_SUMMARY_PROJECTION, select, null,
                     Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
